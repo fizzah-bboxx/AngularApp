@@ -1,9 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Dictionary } from './types';
-
-const baseUrl = "https://jsonplaceholder.typicode.com";
+import { Dictionary, baseUrl } from './types';
 
 @Injectable({
   providedIn: 'root',

@@ -5,10 +5,21 @@
 }
 
 .posts-list{
-    height: 70vh;
+    height:65vh;
     overflow-y: scroll;
-    scrollbar-width: none;
+}
 
+.post-title{
+    background-color: #96D4D4;
+}
+
+img{
+    width: fit-content;
+    border-radius: 0%;
+}
+
+.addImage{
+    width: 100%;
 }
 
 .center {
@@ -19,10 +30,74 @@
   }
 
 
-.ng-valid[required], .ng-valid.required  {
-border-left: 5px solid #42A948; /* green */
+.form-container, h1{
+    display: block;
+    text-align: center;
 }
 
-.ng-invalid:not(form)  {
-border-left: 5px solid #a94442; /* red */
+form {
+    font-size: medium;
+    background-color: #96D4D4;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 0.7%;
+    width: 100%;
+    min-width: 500px;
+    padding: 2%;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+
+input,textarea {
+    background-color: #eee;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #616161;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 10px 20px;
+    width: 100%;
 }
+.placeholder {
+    color: #65657b;
+    font-family: sans-serif;
+    left: 20px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 20px;
+  }
+
+.comments-holder{
+    border-radius: 15% 10% ;
+    background-color: #eee;
+}
+
+.comment-button,i,p.comment-button{
+    background-color: transparent;
+    color:  #96D4D4;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+  .card {
+    all: unset;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #eee;
+    width: 100%;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }

@@ -1,25 +1,28 @@
 
-  <div class = 'container-vr'>
-    <h2>Users</h2>
-    <div *ngFor="let user of users">
-
-      <h3>
+  <h1>Users</h1>
+<div class='container users-list'>
+  <div *ngFor="let user of users">
+    <div class="cart-item">
+      <div>
+        <img src =  "{{ imagePath + user['id'] + '/500/500'}}"/>
+      </div>
+      <div>
         <a  [title]="user['name'] + ' details'"
-            [routerLink]="['/users', user['id']]"  >
+            [routerLink]="['/users', user['id']]"  
+            class="name-label">
           {{ user["name"] }}
         </a>
-      </h3>
-      <div class="container-hr">
-        <p>
-          Email: {{ user['email'] }}
-          <br/>
-          Phone: {{ user['phone'] }}
-        </p>
-        <a [routerLink]="['/posts', user['id']]"  >
-          <button>
-            See Posts
-          </button>
-        </a>
+        <p>Email: {{ user['email'] }}</p>
+        <p>Phone: {{ user['phone'] }}</p>
+      </div>
+      <div>
+      <a [routerLink]="['/posts', user['id']]"  >
+        <button class="post-button">
+          See posts
+          <i class="material-icons">double_arrow</i>
+        </button>
+      </a>
       </div>
     </div>
   </div>
+</div>

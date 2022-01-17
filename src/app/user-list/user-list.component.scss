@@ -1,0 +1,13 @@
+.name-label{
+    font-size: large;
+}
+.users-list{
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+.post-button{
+    font-size: medium;
+    font-weight: bolder;
+    color:#616161;
+    background-color: transparent;
+}

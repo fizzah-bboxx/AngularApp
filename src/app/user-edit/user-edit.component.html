@@ -1,0 +1,51 @@
+<div class="form-container">
+<h1>Update User</h1>
+<form [formGroup]="editForm" (ngSubmit)="saveHandler()">
+    <div formArrayName="dataItems" *ngFor="let emp of getControls(); let i = index">
+        <div [formGroupName]="i">
+            <input type="text"  formControlName="id" placeholder="id" > 
+            <strong>Name: </strong>
+            <input type="text"  formControlName="name" placeholder="name">
+            <strong>UserName :</strong>
+            <input type="text"  formControlName="username" placeholder="username">
+            <strong>Email :</strong>
+            <input type="text" formControlName="email" placeholder="email">
+            <hr/>
+            <div formGroupName="address" >
+                <h3>Address: </h3>
+                <strong>Street: </strong>
+                <input type="text"  formControlName="street" placeholder="street">
+                <strong>Suite :</strong>
+                <input type="text"  formControlName="suite" placeholder="suite">
+                <strong>City :</strong>
+                <input type="text" formControlName="city" placeholder="city">
+                <strong>Zipcode: </strong>
+                <input type="text"  formControlName="zipcode" placeholder="zipcode">
+                <h4>Geo: </h4>
+                <div formGroupName="geo" >
+                    <strong>lat :</strong>
+                    <input type="text"  formControlName="lat" placeholder="lat">
+                    <strong>lng :</strong>
+                    <input type="text" formControlName="lng" placeholder="lng">
+                </div>
+            </div>
+            <hr/>
+            <strong>Phone: </strong>
+            <input type="text"  formControlName="phone" placeholder="phone">
+            <strong>Website :</strong>
+            <input type="text"  formControlName="website" placeholder="website">
+            <hr/>
+            <h3>Company: </h3>
+            <div formGroupName="company" >
+            <strong>Company Name :</strong>
+                <input type="text" formControlName="name" placeholder="name">
+                <strong>Catch Phrase :</strong>
+                <input type="text" formControlName="catchPhrase" placeholder="catchPhrase">
+                <strong>bs :</strong>
+                <input type="text" formControlName="bs" placeholder="bs">
+            </div>
+            <button type="submit">Submit</button>
+        </div>
+    </div>
+</form>
+</div>

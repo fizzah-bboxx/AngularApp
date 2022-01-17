@@ -10,10 +10,12 @@ import { Dictionary } from '../types';
 export class UserListComponent{
   constructor(private http: HttpClient) {}
   users:Dictionary[]= [];
+  imagePath = '';
   ngOnInit() {
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(json => this.getUsers(json));
+    this.imagePath = "https://picsum.photos/id/"
   }
   getUsers(data:Dictionary[]){this.users = data}
   

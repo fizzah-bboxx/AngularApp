@@ -10,6 +10,8 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { PostListComponent } from './post-list/post-list.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { PostListComponent } from './post-list/post-list.component';
     UserListComponent,
     UserDetailsComponent,
     PostListComponent,
+    UserEditComponent,
+    TodoListComponent,
   ],
   imports: [
     BrowserModule,

@@ -20,6 +20,7 @@ export class PostListComponent implements OnInit {
     body: ''
   });
   comments: Dictionary[] = [];
+  advertisementPath="https://monophy.com/media/mEJl6Dcptu5LWLXE59/monophy.gif"
 
   constructor(  private route: ActivatedRoute,
                 private formBuilder: FormBuilder,

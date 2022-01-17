@@ -1,3 +1,5 @@
+export const baseUrl = "https://jsonplaceholder.typicode.com";
+
 export type Dictionary = {
     [key: string]: any
 }
