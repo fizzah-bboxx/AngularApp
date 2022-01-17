@@ -1,0 +1,27 @@
+
+<div class='container-vr'>
+    <div class='container-hr'>
+        <div class='container-vr'>
+            <img src={{imagePath}} />
+            <h1>{{ user['name'] }}</h1><h3>{{ user['username'] }}</h3>
+        </div>
+        <div class='container-vr'>
+            <h2> Address </h2>
+            <p><b>City:</b> {{ user.address.street }}</p>
+            <p><b>City:</b> {{ user.address.city }}</p>
+            <p><b>zipcode:</b> {{ user.address.zipcode }}</p>
+        </div>
+        <div class='container-vr'>
+            <h2> Contacts </h2>
+            <p><b>Phone:</b> {{ user.phone }}</p>
+            <p><b>Email:</b> {{ user.email }}</p>
+            <p><b>Website:</b> {{ user.website }}</p>
+        </div>
+        <div class='container-vr'>
+            <h2> Company Details</h2>
+            <p><b>Name:</b> {{ user.company.name }}</p>
+            <p><b>Vision:</b> {{ user.company.catchPhrase }}</p>
+            <p><b>Values:</b> {{ user.company.bs }}</p>
+        </div>
+    </div>
+</div>
