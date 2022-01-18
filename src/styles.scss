@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 /* Global Styles */
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
 * {
     font-family: 'Roboto', Arial, sans-serif;
     color: #616161;
@@ -128,8 +130,10 @@
   }
 
   .fancy-button  {
+    text-align: center;
     background-color: #96D4D4;
     padding-right: 4px;
+    width:10%
   }
   
   /* Top Bar */

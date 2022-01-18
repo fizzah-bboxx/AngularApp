@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, FormArray } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
-import { User } from "../types";
+import { baseUrl, User } from "../types";
 @Component({
   selector: "app-user-edit",
   templateUrl: "./user-edit.component.html",
@@ -91,7 +91,7 @@ export class UserEditComponent implements OnInit{
   public saveHandler() {
     const updatedUser:User = this.editForm.value['dataItems'][0];
     // send update request to server 
-    fetch('https://jsonplaceholder.typicode.com/users/'+this.userIdFromRoute, {
+    fetch(`${baseUrl}/users/${this.userIdFromRoute}`, {
       method: 'PUT',
       body: JSON.stringify(updatedUser),
       headers: {

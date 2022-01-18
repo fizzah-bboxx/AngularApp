@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Dictionary } from '../types';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { UserService } from './user.services';
 
 @Component({
   selector: 'app-user-list',
@@ -8,16 +11,27 @@ import { Dictionary } from '../types';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent{
-  constructor(private http: HttpClient) {}
+  constructor(private userService:UserService,private matAutocompleteModule:MatAutocompleteModule) {}
   users:Dictionary[]= [];
-  imagePath = '';
-  ngOnInit() {
-    fetch('https://jsonplaceholder.typicode.com/users')
-    .then(response => response.json())
-    .then(json => this.getUsers(json));
-    this.imagePath = "https://picsum.photos/id/"
+  imagePath = "https://picsum.photos/id/";
+
+  myControl = new FormControl();
+  options: string[] = [''];
+  filteredOptions!: Observable<Dictionary[]>;
+
+  ngOnInit() { 
+    this.userService.users.subscribe((data) => this.users = (data as Dictionary[]))
+    this.filteredOptions = this.userService.getFilteredOptions(this.myControl)
   }
-  getUsers(data:Dictionary[]){this.users = data}
-  
+
+  searchHanler(){
+      let name = this.myControl.value
+      if(name!=''){
+        this.users = this.users.filter(user => user['name'].includes(name));
+      }else{
+        this.users = this.userService.userdata
+      }
+      
+  }
 
 }

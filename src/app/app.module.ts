@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +12,11 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
-import { TodoListComponent } from './todo-list/todo-list.component';
+import { PhotoListComponent } from './photo-list/photo-list.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +26,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
     UserDetailsComponent,
     PostListComponent,
     UserEditComponent,
-    TodoListComponent,
+    PhotoListComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,11 @@ import { TodoListComponent } from './todo-list/todo-list.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

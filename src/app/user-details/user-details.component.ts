@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { User } from '../types'
+import { baseUrl,User } from '../types'
 
 
 @Component({
@@ -43,14 +43,22 @@ export class UserDetailsComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     const userIdFromRoute = Number(routeParams.get('userId'));
 
-    this.imagePath = "https://picsum.photos/id/"+userIdFromRoute+"/200/200"
+    this.imagePath = `https://picsum.photos/id/${userIdFromRoute}/200/200`
 
-    fetch('https://jsonplaceholder.typicode.com/users/'+userIdFromRoute)
+    fetch(`${baseUrl}/users/${userIdFromRoute}`)
     .then(response => response.json())
     .then(json => this.getUser(json));
 
   }
 
   getUser(user :User):void{this.user = user}
+
+  deleteUser(id:number){
+    fetch(`${baseUrl}/users/${id}`, {
+      method: 'DELETE',
+    }).then(()=>confirm(`User at id: ${id} has been successfully deleted`)
+    );
+    
+  }
 
 }

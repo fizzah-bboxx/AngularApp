@@ -27,8 +27,8 @@
                 <a [routerLink]="['/edit-user', user['id']]"  >
                     <button class="button"><i class="material-icons">edit</i></button>
                 </a>
-                <a [routerLink]="['/todos', user['id']]"  >
-                    <button class="button"><i class="material-icons">task</i></button>
+                <a (click)="deleteUser(user['id'])">
+                    <button class="button"><i class="material-icons">delete</i></button>
                 </a>
                 <a [routerLink]="['/posts', user['id']]"  >
                     <button class="button"><i class="material-icons">photo</i></button>
