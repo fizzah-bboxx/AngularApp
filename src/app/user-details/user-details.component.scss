@@ -1,23 +1,28 @@
-button{
-    border-radius: 50%;
-    padding: 10% 10%;
-    float: right;
-    background-color: #616161;
+button {
+  border-radius: 50%;
+  padding: 10% 10%;
+  float: right;
+  background-color: #616161;
 }
-i, h2{
-    font-size: 40px;
-    color:white;
+i,h2 {
+  font-size: 40px;
+  color: white;
 }
-.details-board{
-    border-radius: 15% 10% ;
-    background-color: #96D4D4;
+h1 {
+  font-size: 60px;
+  text-align:center;
 }
-img{
-    width:50%;
-    min-width: 200px;
-    max-width: 250px;
+.details-board {
+  border-radius: 15% 10%;
+  background-color: #96d4d4;
+}
+img {
+  margin:2%;
+  width: 50%;
+  min-width: 200px;
+  max-width: 250px;
 }
 
-.buttons-holder{
-    min-width: 10%;
+.buttons-holder {
+  min-width: 10%;
 }

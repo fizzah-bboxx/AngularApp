@@ -1,57 +1,71 @@
-
 <div class="container-hr">
-    <div class="container-vr">
-        <h1>Create Post</h1>
+  <div class="container-vr">
+    <h1>Create Post</h1>
 
-        <form [formGroup]="postForms" (ngSubmit)="SubmitPost()">
-        <div>
-            <label for="title">
-            Title
-            </label>
-            <input id="title" type="text" formControlName="title">
+    <form [formGroup]="postForms" (ngSubmit)="SubmitPost()">
+      <div>
+        <label for="title"> Title </label>
+        <input id="title" type="text" formControlName="title" />
+      </div>
+      <div>
+        <label for="body"> Body </label>
+        <textarea
+          id="txtid"
+          name="txtname"
+          rows="4"
+          id="body"
+          type="textArea"
+          formControlName="body"
+        ></textarea>
+      </div>
+      <button class="button" type="submit">Post</button>
+    </form>
+
+    <img [src]="advertisementPath" class="addImage" class="cart-item" />
+  </div>
+
+  <div class="container-vr">
+    <h1>POSTS</h1>
+    <div class="container posts-list">
+      <div *ngFor="let post of posts">
+        <h2>{{ post["title"] }}</h2>
+        <div class="card">
+          <img src="{{ imagePath + post['id'] }}" class="center" />
         </div>
-        <div>
-            <label for="body">
-            Body
-            </label>
-            <textarea id="txtid" name="txtname" rows="4"  id="body" type="textArea" formControlName="body"></textarea>
-        </div>
-        <button class="button" type="submit">Post</button>
-        </form>
-    
-        <img [src]="advertisementPath" class="addImage">
-    </div>
-    
-    <div class = 'container-vr'>
-        <h1>POSTS</h1>
-        <div class="container posts-list">
-        <div *ngFor="let post of posts">
-            <h2>{{ post['title'] }}</h2>
-            <div class="card">
-                <img src = "{{ imagePath + post['id'] }}" class="center"/>
-             </div>
-            <p>{{ post['body'] }}</p>
-            <a (click)="getComments(post['id'])">
-                <button class="comment-button"><i class="material-icons">comments</i>
-                {{(isVisible && post['id']==commentPostId)? 'Hide Comments': 'Show Comments'}}</button>
-            </a>
-            <div *ngIf="post['id']==commentPostId && isVisible">
-            <div *ngIf="comments.length!=0" #commentsDiv class='container comments-holder'>
-                <h1>Comments</h1>
-                <div *ngFor="let comment of comments">
-                    <div>
-                        <ul>
-                            <li><p><i>{{comment['email']}}</i></p></li>
-                            <h3>{{ comment['name'] }}</h3>
-                            <p>{{ comment['body'] }}</p>
-                        </ul>
-                    </div>
-                </div>
+        <p>{{ post["body"] }}</p>
+        <a (click)="getComments(post['id'])">
+          <button class="comment-button">
+            <i class="material-icons">comments</i>
+            {{
+              isVisible && post["id"] == commentPostId
+                ? "Hide Comments"
+                : "Show Comments"
+            }}
+          </button>
+        </a>
+        <div *ngIf="post['id'] == commentPostId && isVisible">
+          <div
+            *ngIf="comments.length != 0"
+            #commentsDiv
+            class="container comments-holder"
+          >
+            <h1>Comments</h1>
+            <div *ngFor="let comment of comments">
+              <div>
+                <ul>
+                  <li>
+                    <p>
+                      <i>{{ comment["email"] }}</i>
+                    </p>
+                  </li>
+                  <h3>{{ comment["name"] }}</h3>
+                  <p>{{ comment["body"] }}</p>
+                </ul>
+              </div>
             </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
-    </div>
+  </div>
 </div>
-
-  

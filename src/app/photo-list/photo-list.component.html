@@ -1,10 +1,10 @@
 <div class="card-container">
-    <div *ngFor="let photo of photo_list" >
-        <div class="card" (click)="getAlbum(photo['albumId'])">
-            <img src="{{photo['thumbnailUrl']}}" />
-            <div class="container">
-                <h3>{{photo['title']}}</h3>
-            </div>
-        </div>
+  <div *ngFor="let photo of photo_list">
+    <div class="card" (click)="getAlbum(photo['albumId'])">
+      <img src="{{ photo['thumbnailUrl'] }}" />
+      <div class="container">
+        <h3>{{ photo["title"] }}</h3>
+      </div>
     </div>
+  </div>
 </div>

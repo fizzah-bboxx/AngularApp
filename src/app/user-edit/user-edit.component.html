@@ -3,7 +3,7 @@
 <form [formGroup]="editForm" (ngSubmit)="saveHandler()">
     <div formArrayName="dataItems" *ngFor="let emp of getControls(); let i = index">
         <div [formGroupName]="i">
-            <input type="text"  formControlName="id" placeholder="id" > 
+            <input type="text"  formControlName="id" placeholder="id"> 
             <strong>Name: </strong>
             <input type="text"  formControlName="name" placeholder="name">
             <strong>UserName :</strong>

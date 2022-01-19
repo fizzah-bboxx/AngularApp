@@ -1,41 +1,41 @@
-
-.form-container, h1{
-    display: block;
-    text-align: center;
+.form-container,
+h1 {
+  display: block;
+  text-align: center;
 }
 
 form {
-    background-color: #96D4D4;
-    border-radius: 20px;
-    box-sizing: border-box;
-    padding: 2%;
-    width: 30%;
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-  }
+  background-color: #96d4d4;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 2%;
+  width: 30%;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
 
 input {
-    background-color: #eee;
-    border-radius: 12px;
-    border: 0;
-    box-sizing: border-box;
-    color: #616161;
-    font-size: 18px;
-    height: 100%;
-    outline: 0;
-    padding: 10px 20px;
-    width: 100%;
+  background-color: #eee;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #616161;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 10px 20px;
+  width: 100%;
 }
 .placeholder {
-    color: #65657b;
-    font-family: sans-serif;
-    left: 20px;
-    line-height: 14px;
-    pointer-events: none;
-    position: absolute;
-    transform-origin: 0 50%;
-    transition: transform 200ms, color 200ms;
-    top: 20px;
-  }
+  color: #65657b;
+  font-family: sans-serif;
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: transform 200ms, color 200ms;
+  top: 20px;
+}

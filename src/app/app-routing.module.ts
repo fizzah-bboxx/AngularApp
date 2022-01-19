@@ -12,10 +12,10 @@ const routes: Routes = [
   { path: 'posts/:userId', component: PostListComponent },
   { path: 'edit-user/:userId', component: UserEditComponent },
   { path: 'gallery', component: PhotoListComponent },
-  { path: '', redirectTo: '/users', pathMatch: 'full' } // when app loads(path is empty) goto users page
+  { path: '', redirectTo: '/users', pathMatch: 'full' }, // when app loads(path is empty) goto users page
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

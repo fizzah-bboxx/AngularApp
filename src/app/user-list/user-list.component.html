@@ -1,46 +1,56 @@
-
-  <h1>Users</h1>
-  <div class="srearch">
+<div class="top-ribbon">
+  <div>
+    <h1>Users</h1>
+  </div>
+  <div class="search-box">
     <form class="example-form" (ngSubmit)="searchHanler()">
       <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Number</mat-label>
-          <input type="text"
-                  placeholder="Pick one"
-                  aria-label="Number"
-                  matInput
-                  [formControl]="myControl"
-                  [matAutocomplete]="auto">
-          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-          <mat-option *ngFor="let option of filteredOptions | async" [value]="option['name']" >
-              {{option['name']}}
+        <mat-label>Name</mat-label>
+        <input
+          type="text"
+          placeholder="Search by name"
+          aria-label="Name"
+          matInput
+          [formControl]="myControl"
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option
+            *ngFor="let option of filteredOptions | async"
+            [value]="option['name']"
+          >
+            {{ option["name"] }}
           </mat-option>
-          </mat-autocomplete>
+        </mat-autocomplete>
       </mat-form-field>
-      <button value="submit">Go</button>
+      <button value="submit" class="search-button">Go</button>
     </form>
   </div>
-<div class='container users-list'>
+</div>
+<div class="container users-list">
   <div *ngFor="let user of users">
     <div class="cart-item">
       <div>
-        <img src =  "{{ imagePath + user['id'] + '/500/500'}}"/>
+        <img src="{{ imagePath + user['id'] + '/500/500' }}" />
       </div>
       <div>
-        <a  [title]="user['name'] + ' details'"
-            [routerLink]="['/users', user['id']]"  
-            class="name-label">
+        <a
+          [title]="user['name'] + ' details'"
+          [routerLink]="['/users', user['id']]"
+          class="name-label"
+        >
           {{ user["name"] }}
         </a>
-        <p>Email: {{ user['email'] }}</p>
-        <p>Phone: {{ user['phone'] }}</p>
+        <p>Email: {{ user["email"] }}</p>
+        <p>Phone: {{ user["phone"] }}</p>
       </div>
       <div>
-      <a [routerLink]="['/posts', user['id']]"  >
-        <button class="post-button">
-          See posts
-          <i class="material-icons">double_arrow</i>
-        </button>
-      </a>
+        <a [routerLink]="['/posts', user['id']]">
+          <button class="post-button">
+            See posts
+            <i class="material-icons">double_arrow</i>
+          </button>
+        </a>
       </div>
     </div>
   </div>
