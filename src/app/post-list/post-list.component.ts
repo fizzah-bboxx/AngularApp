@@ -2,7 +2,7 @@ import { PostService, CommentService } from '../services/post.services';
 import { Component, OnInit } from '@angular/core';
 import { Dictionary } from '../types';
 import { ActivatedRoute } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-post-list',
@@ -16,8 +16,8 @@ export class PostListComponent implements OnInit {
   isVisible: boolean = false;
   commentPostId: number = -1;
   postForms = this.formBuilder.group({
-    title: '',
-    body: '',
+    title: ['', Validators.required],
+    body: ['', Validators.required],
   });
   comments: Dictionary[] = [];
   advertisementPath =
