@@ -2,7 +2,7 @@
   <div class="container-vr">
     <h1>Create Post</h1>
 
-    <form [formGroup]="postForms" (ngSubmit)="SubmitPost()"  [className]="(postForms.status=='VALID') ? 'valid-form' : 'invalid-form'">
+    <form [formGroup]="postForm" (ngSubmit)="SubmitPost()"  [className]="(postForm.status=='VALID') ? 'valid-form' : 'invalid-form'">
       <div>
         <label for="title"> Title </label>
         <input id="title" type="text" formControlName="title" />
@@ -10,7 +10,6 @@
       <div>
         <label for="body"> Body </label>
         <textarea
-          id="txtid"
           name="txtname"
           rows="4"
           id="body"
@@ -18,7 +17,7 @@
           formControlName="body"
         ></textarea>
       </div>
-      <p>Form Status: {{ postForms.status }}</p>
+      <p>Form Status: {{ postForm.status }}</p>
       <button class="button" type="submit">Post</button>
     </form>
 

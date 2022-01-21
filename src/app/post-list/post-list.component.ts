@@ -15,7 +15,7 @@ export class PostListComponent implements OnInit {
   imagePath: string;
   isVisible: boolean = false;
   commentPostId: number = -1;
-  postForms = this.formBuilder.group({
+  postForm = this.formBuilder.group({
     title: ['', Validators.required],
     body: ['', Validators.required],
   });
@@ -46,12 +46,12 @@ export class PostListComponent implements OnInit {
   }
 
   SubmitPost() {
-    let data = this.postForms.value;
+    let data = this.postForm.value;
     const resp = this.postService.createPost(data, this.userId!);
     if (resp['status'] == 'success') {
       this.posts.push(data);
     }
-    this.postForms.reset();
+    this.postForm.reset();
   }
 
   getComments(postId: number) {
@@ -61,6 +61,5 @@ export class PostListComponent implements OnInit {
     this.commentService.comments.subscribe(
       (data) => (this.comments = data as Dictionary[])
     );
-    console.log(this.comments);
   }
 }
