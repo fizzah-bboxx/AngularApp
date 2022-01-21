@@ -35,10 +35,11 @@ export class PostListComponent implements OnInit {
 
   ngOnInit(): void {
     // First get the user id from the current route.
-    const routeParams = this.route.snapshot.paramMap;
-    this.userId = Number(routeParams.get('userId'));
+    this.route.queryParams.subscribe((params) => {
+      this.userId = Number(params['userId']);
+      this.postService._userId = this.userId;
+    });
 
-    this.postService._userId = this.userId;
     this.postService.posts.subscribe(
       (data) => (this.posts = data as Dictionary[])
     );

@@ -2,7 +2,9 @@
   <div class="container">
     <div class="container-hr img-align">
       <img src="{{ imagePath }}" />
-      <h1>{{ user["name"] }}<br />({{ user["username"] }})</h1>
+      <div class="name-tag">
+        <h1>{{ user["name"] }}({{ user["username"] }})</h1>
+      </div>
       <div class="container-vr buttons-holder">
         <a [routerLink]="['/edit-user', user['id']]">
           <button class="button"><i class="material-icons">edit</i></button>
@@ -10,7 +12,7 @@
         <a (click)="deleteUser()">
           <button class="button"><i class="material-icons">delete</i></button>
         </a>
-        <a [routerLink]="['/posts', user['id']]">
+        <a [routerLink]="['/posts']" [queryParams]="{ userId: user['id'] }">
           <button class="button"><i class="material-icons">photo</i></button>
         </a>
       </div>

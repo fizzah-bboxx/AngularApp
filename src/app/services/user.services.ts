@@ -1,9 +1,10 @@
-import { map, Observable, startWith } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { map, Observable, of, startWith } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Dictionary, baseUrl, User } from '../types';
 import { FormControl } from '@angular/forms';
+import mockData from '../../assets/mockData.json'
 
 @Injectable({
   providedIn: 'root',
@@ -66,7 +67,6 @@ export class UserService {
       startWith(''),
       map((value: string) => this._filter(value))
     );
-    console.log();
     return filteredOptions;
   }
 
@@ -77,4 +77,39 @@ export class UserService {
       user['name'].toLowerCase().includes(filterValue)
     );
   }
+}
+
+
+export class userServiceStub {
+  _userId: number = 1;
+  expectedUsers = mockData.users as Dictionary[]
+
+  userdata: Dictionary[] = [];
+
+  set userId(id: number) {
+    this._userId = id;
+  }
+
+  get users() {
+    return of(this.expectedUsers);
+  }
+
+  get user() {
+    return of(this.expectedUsers[0]);
+  }
+
+  editUser(data: User) {
+    this.expectedUsers[0] = data
+    let updatedUser = this.expectedUsers[0] as User
+    console.log(updatedUser)
+  }
+
+  deleteUser() {
+
+  }
+
+  getFilteredOptions(myControl: FormControl): Observable<Dictionary[]> {
+    return of([{"name":"Ervin Howell"}])
+  }
+  
 }

@@ -24,7 +24,7 @@ export class UserListComponent {
 
   ngOnInit() {
     this.userService.users.subscribe(
-      (data) => (this.users = data as Dictionary[])
+      (data) => this.users = data as Dictionary[]
     );
     this.filteredOptions = this.userService.getFilteredOptions(this.myControl);
   }

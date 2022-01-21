@@ -41,11 +41,11 @@
         >
           {{ user["name"] }}
         </a>
-        <p>Email: {{ user["email"] }}</p>
-        <p>Phone: {{ user["phone"] }}</p>
+        <p id="email">Email: {{ user["email"] }}</p>
+        <p id="phone">Phone: {{ user["phone"] }}</p>
       </div>
       <div>
-        <a [routerLink]="['/posts', user['id']]">
+        <a [routerLink]="['/posts']" [queryParams]="{ userId: user['id'] }">
           <button class="post-button">
             See posts
             <i class="material-icons">double_arrow</i>
