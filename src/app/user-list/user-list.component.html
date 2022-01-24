@@ -1,57 +1,61 @@
-<div class="top-ribbon">
-  <div>
-    <h1>Users</h1>
-  </div>
-  <div class="search-box">
-    <form class="example-form" (ngSubmit)="searchHanler()">
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Name</mat-label>
-        <input
-          type="text"
-          placeholder="Search by name"
-          aria-label="Name"
-          matInput
-          [formControl]="myControl"
-          [matAutocomplete]="auto"
-        />
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-          <mat-option
-            *ngFor="let option of filteredOptions | async"
-            [value]="option['name']"
-          >
-            {{ option["name"] }}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-      <button value="submit" class="search-button">Go</button>
-    </form>
-  </div>
-</div>
-<div class="container users-list">
-  <div *ngFor="let user of users">
-    <div class="cart-item">
-      <div>
-        <img src="{{ imagePath + user['id'] + '/500/500' }}" />
-      </div>
-      <div>
-        <a
-          [title]="user['name'] + ' details'"
-          [routerLink]="['/users', user['id']]"
-          class="name-label"
+<mat-toolbar fxLayoutGap="auto" class="top-ribbon">
+  <h1>Users</h1>
+
+  <form class="example-form" (ngSubmit)="searchHanler()">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Name</mat-label>
+      <input
+        type="text"
+        matInput
+        [formControl]="myControl"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let option of filteredOptions | async"
+          [value]="option['name']"
         >
-          {{ user["name"] }}
-        </a>
+          {{ option["name"] }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <button mat-icon-button value="submit" class="search-button">
+      <mat-icon>search</mat-icon>
+    </button>
+  </form>
+</mat-toolbar>
+
+<div fxLayout="column" fxLayoutGap="20px">
+  <div *ngFor="let user of users" fxFlex="1 1 0">
+    <mat-card fxFlexAlign="center">
+      <mat-card-header>
+        <img mat-card-avatar src="{{ imagePath + user['id'] + '/150/150' }}">
+        <mat-card-title
+          ><a
+            [title]="user['name'] + ' details'"
+            [routerLink]="['/users', user['id']]"
+            class="name-label"
+          >
+            {{ user["name"] }}
+          </a></mat-card-title
+        >
+        <mat-card-subtitle>{{user['company']['name']}}</mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-content>
         <p id="email">Email: {{ user["email"] }}</p>
         <p id="phone">Phone: {{ user["phone"] }}</p>
-      </div>
-      <div>
-        <a [routerLink]="['/posts']" [queryParams]="{ userId: user['id'] }">
-          <button class="post-button">
-            See posts
-            <i class="material-icons">double_arrow</i>
-          </button>
-        </a>
-      </div>
-    </div>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button
+          class="post-button"
+          [routerLink]="['/posts']"
+          [queryParams]="{ userId: user['id'] }"
+        >
+          See posts
+          <i class="material-icons">double_arrow</i>
+        </button>
+      </mat-card-actions>
+    </mat-card>
   </div>
 </div>

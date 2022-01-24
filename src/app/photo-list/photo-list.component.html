@@ -1,10 +1,10 @@
-<div class="card-container">
-  <div *ngFor="let photo of photo_list">
-    <div class="card" (click)="getAlbum(photo['albumId'])">
-      <img src="{{ photo['thumbnailUrl'] }}" />
-      <div class="container">
-        <h3>{{ photo["title"] }}</h3>
-      </div>
-    </div>
+<div fxLayout="row wrap" fxLayoutGap="5px">
+  <div fxFlex="1 2 calc(15em + 20px)" *ngFor="let photo of photo_list">
+    <mat-grid-list cols="fill">
+      <mat-grid-tile>
+        <mat-grid-tile-header>{{ photo["title"] }}</mat-grid-tile-header>
+        <img src="{{ photo['thumbnailUrl'] }}" />
+      </mat-grid-tile>
+    </mat-grid-list>
   </div>
 </div>

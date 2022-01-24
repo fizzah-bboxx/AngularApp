@@ -1,10 +1,12 @@
+import { MatCardModule } from '@angular/material/card';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app/app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
@@ -18,7 +20,9 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { routes } from 'src/environments/environment';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +31,7 @@ import { routes } from 'src/environments/environment';
     UserDetailsComponent,
     PostListComponent,
     UserEditComponent,
-    PhotoListComponent,
+    PhotoListComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,13 @@ import { routes } from 'src/environments/environment';
     MatInputModule,
     BrowserAnimationsModule,
     Ng2SearchPipeModule,
-    RouterModule.forRoot(routes)
+    FlexLayoutModule,
+    MatGridListModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent],

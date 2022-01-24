@@ -1,10 +1,10 @@
-<div class="home-icon">
-  <a [routerLink]="['/']">
-    <i class="material-icons" style="font-size: 50px">house</i>
-  </a>
-</div>
+<mat-toolbar fxLayoutGap="auto">
+  <button mat-icon-button [routerLink]="['/']">
+    <mat-icon aria-hidden="false">home</mat-icon>
+  </button>
 
-<a class="button fancy-button" [routerLink]="['/gallery']">
-  <i class="material-icons">photo</i>
-  Go to Gallery
-</a>
+  <button mat-raised-button [routerLink]="['/gallery']">
+    <mat-icon class="photo-icon" inline=true>photo</mat-icon>
+    <span>Gallery </span>
+  </button>
+</mat-toolbar>
